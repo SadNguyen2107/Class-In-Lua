@@ -24,7 +24,7 @@ additional classes.
 Point = Object:extend()
 
 function Point:new(x, y)
-  local obj = setmetatable({}, self)
+  local obj = Point.super.new(self)     -- Call the base constructor (REQUIRED)
   obj.x = x or 0
   obj.y = y or 0
 
@@ -42,7 +42,7 @@ local p = Point:new(10, 20)
 Rect = Point:extend()
 
 function Rect:new(x, y, width, height)
-  local obj = Rect.super.new(self, x, y)
+  local obj = Rect.super.new(self, x, y)    -- Call the base constructor (REQUIRED)
   obj.width = width or 0
   obj.height = height or 0
 
@@ -73,7 +73,7 @@ Point = Object:extend()
 Point:implement(PairPrinter)
 
 function Point:new(x, y)
-  local obj = setmetatable({}, self)
+  local obj = Point.super.new(self)   -- Call the base constructor (REQUIRED)
   obj.x = x or 0
   obj.y = y or 0
 
@@ -91,7 +91,7 @@ Point = Object:extend()
 Point.scale = 2
 
 function Point:new(x, y)
-  local obj = setmetatable({}, self)
+  local obj = Point.super.new(self)   -- Call the base constructor (REQUIRED)
   obj.x = x or 0
   obj.y = y or 0
 
