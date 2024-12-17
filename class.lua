@@ -1,5 +1,5 @@
 ---
---- classic
+--- class
 ---
 --- Copyright (c) 2014, rxi
 ---
@@ -13,8 +13,12 @@
 local Object = {}
 Object.__index = Object
 
---- Default constructor for an Object.
+--- Creates a new instance of the class when called.
+--- Constructor for an Object.
+--- @return table # A new instance of the class.
 function Object:new(...)
+    local obj = setmetatable({}, self)
+    return obj
 end
 
 --- Creates a subclass of the current class.
@@ -62,14 +66,6 @@ end
 --- @return string
 function Object:__tostring()
     return "Object"
-end
-
---- Creates a new instance of the class when called.
---- @return table # A new instance of the class.
-function Object:__call(...)
-    local obj = setmetatable({}, self)
-    obj:new(...)
-    return obj
 end
 
 return Object
